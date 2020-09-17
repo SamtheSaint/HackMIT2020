@@ -15,7 +15,7 @@ policies:
       maximumOfOneCommit: false
       conventional:
         types:
-          - "type"
-        scopes:
-          - "scope"
+          - "fix"
+          - "feat"
+          - "chore"
         descriptionLength: 72
