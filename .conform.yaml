@@ -19,14 +19,3 @@ policies:
         scopes:
           - "scope"
         descriptionLength: 72
-  - type: license
-    spec:
-      skipPaths:
-        - .git/
-        - .build*/
-      includeSuffixes:
-        - .ext
-      excludeSuffixes:
-        - .exclude-ext-prefix.ext
-      header: |
-        This is the contents of a license header.
