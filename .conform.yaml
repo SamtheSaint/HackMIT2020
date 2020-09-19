@@ -19,4 +19,5 @@ policies:
           - "feat"
           - "chore"
           - "perf"
+          - "refactor"
         descriptionLength: 72
