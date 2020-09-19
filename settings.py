@@ -17,16 +17,15 @@ dataset_online = Dataset("COVID19_ONLINE_ASSESSMENTS_NHS")
 # Initialise UK Gov SDK
 filters = [
     'areaType=utla',
-    'date=2020-09-17'
 ]
 structure = {
     "date": "date",
-    "areaName": "areaName",
+    # "areaName": "areaName",
     "areaCode": "areaCode",
-    "newCasesByPublishDate": "newCasesByPublishDate",
-    "cumCasesByPublishDate": "cumCasesByPublishDate",
-    "newDeaths28DaysByDeathDate": "newDeaths28DaysByDeathDate",
-    "cumDeaths28DaysByDeathDate": "cumDeaths28DaysByDeathDate"
+    "newCasesByPublishDate": "newCasesByPublishDate"
+    # "cumCasesByPublishDate": "cumCasesByPublishDate",
+    # "newDeaths28DaysByDeathDate": "newDeaths28DaysByDeathDate",
+    # "cumDeaths28DaysByDeathDate": "cumDeaths28DaysByDeathDate"
 }
 
 api_covid = Cov19API(filters=filters, structure=structure)

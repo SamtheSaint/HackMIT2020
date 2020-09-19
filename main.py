@@ -6,8 +6,10 @@ import pandas as pd
 frame_covid = api_covid.get_dataframe()
 pd.set_option('display.max_rows', len(frame_covid))
 pd.set_option('display.max_columns', len(frame_covid.columns))
-print(frame_covid)
+frame_covid.to_json("gov.json")
 
-frame_online = dataset_online.get_data(countryId='GB', start=date(2019, 1, 1))
-print(frame_online)
+# frame_online = dataset_online.get_data(countryId='GB', start=date(2019, 1, 1))
+# pd.set_option('display.max_rows', len(frame_online))
+# pd.set_option('display.max_columns', len(frame_online.columns))
+# print(frame_online.head())
 
