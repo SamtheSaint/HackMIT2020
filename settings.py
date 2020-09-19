@@ -11,13 +11,13 @@ load_dotenv()
 GsSession.use(environment_or_domain=Environment.PROD, client_id=os.getenv(
     "CLIENT_ID"), client_secret=os.getenv("CLIENT_SECRET"), scopes=('read_product_data', 'read_financial_data'))
 
-# Initialize datasets
+# Initialise datasets
 dataset_online = Dataset("COVID19_ONLINE_ASSESSMENTS_NHS")
 
-# Initialize UK Gov SDK
+# Initialise UK Gov SDK
 filters = [
-    'areaType=nation',
-    'areaName=England'
+    'areaType=utla',
+    'date=2020-09-17'
 ]
 structure = {
     "date": "date",

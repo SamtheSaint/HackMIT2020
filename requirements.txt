@@ -1,4 +1,5 @@
 gs-quant
-python-dotenv
+python-dotenv~=0.14.0
 autopep8
 uk_covid19
+pandas~=1.0.5
