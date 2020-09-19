@@ -2,6 +2,7 @@ from datetime import date
 from settings import marquee_api, gov_api
 import pandas as pd
 import gs_quant.timeseries as ts
+import matplotlib.pyplot as plt
 
 # pull the UK data into a Pandas dataframe
 try:
@@ -37,11 +38,20 @@ for coord in coords:
     ts_link = (ts_phones.drop(columns=["ccgCode"]),
                ts_cases.drop(columns=["areaCode"]))
     # if phones or cases < n
+    if len(ts_cases) < 30 or len(ts_phones) < 30:
+        continue
     ts_list.append(ts_link)
 
-# TODO: Perform time-series analysis to both to find lag correlation!
 for pair in ts_list:
-    # print(pair[0]["count"])
-    # print(pair[1]["newCasesByPublishDate"])
-    print(ts.econometrics.autocorrelation(
-        pair[0]["count"], pair[1]["newCasesByPublishDate"], 10))
+    plt.figure(figsize=(12, 5))
+    # TODO: Calculate optimal correlation lag time for each and do statistical analysis on results, i.e. median, S.D.,
+    #  etc.
+    print(ts.econometrics.correlation(
+        pair[0]["count"], pair[1]["newCasesBySpecimenDate"], 10))
+    pair[0]["count"].name = "Phone Calls"
+    pair[0]["count"].plot(color='blue', grid=True)
+    pair[1]["newCasesBySpecimenDate"].name = "Cases"
+    pair[1]["newCasesBySpecimenDate"].plot(color='red', grid=True, secondary_y=True)
+    plt.show()
+    # TODO: Trim data to match time for visualisation, shouldn't matter for correlation
+    break

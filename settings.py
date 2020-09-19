@@ -22,7 +22,7 @@ structure = {
     "date": "date",
     # "areaName": "areaName",
     "areaCode": "areaCode",
-    "newCasesByPublishDate": "newCasesByPublishDate"
+    "newCasesBySpecimenDate": "newCasesBySpecimenDate"
     # "cumCasesByPublishDate": "cumCasesByPublishDate",
     # "newDeaths28DaysByDeathDate": "newDeaths28DaysByDeathDate",
     # "cumDeaths28DaysByDeathDate": "cumDeaths28DaysByDeathDate"
