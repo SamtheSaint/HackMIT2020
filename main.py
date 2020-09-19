@@ -1,15 +1,19 @@
 from datetime import date
-from settings import dataset_online, api_covid
+from settings import marquee_api, gov_api
 import pandas as pd
 
 # pull the UK data into a Pandas dataframe
-frame_covid = api_covid.get_dataframe()
-pd.set_option('display.max_rows', len(frame_covid))
-pd.set_option('display.max_columns', len(frame_covid.columns))
-frame_covid.to_json("gov.json")
+try:
+    gov_frame = pd.read_csv("data/gov.csv")
+except:
+    gov_frame = gov_api.get_dataframe()
+    gov_frame.to_csv("data/gov.csv")
 
-# frame_online = dataset_online.get_data(countryId='GB', start=date(2019, 1, 1))
-# pd.set_option('display.max_rows', len(frame_online))
-# pd.set_option('display.max_columns', len(frame_online.columns))
-# print(frame_online.head())
-
+try:
+    marquee_frame = pd.read_csv("data/marquee.csv")
+except:
+    pass
+    marquee_frame = marquee_api.get_data(
+        countryId='GB', start=date(2020, 1, 3))
+    # TODO - process marquee data in required format
+    # marquee_frame.to_csv("data/marquee.csv")

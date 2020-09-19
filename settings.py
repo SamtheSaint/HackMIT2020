@@ -12,7 +12,7 @@ GsSession.use(environment_or_domain=Environment.PROD, client_id=os.getenv(
     "CLIENT_ID"), client_secret=os.getenv("CLIENT_SECRET"), scopes=('read_product_data', 'read_financial_data'))
 
 # Initialise datasets
-dataset_online = Dataset("COVID19_ONLINE_ASSESSMENTS_NHS")
+marquee_api = Dataset("COVID19_ONLINE_ASSESSMENTS_NHS")
 
 # Initialise UK Gov SDK
 filters = [
@@ -28,4 +28,4 @@ structure = {
     # "cumDeaths28DaysByDeathDate": "cumDeaths28DaysByDeathDate"
 }
 
-api_covid = Cov19API(filters=filters, structure=structure)
+gov_api = Cov19API(filters=filters, structure=structure)
