@@ -4,14 +4,14 @@ import pandas as pd
 
 # pull the UK data into a Pandas dataframe
 try:
-    gov_frame = pd.read_csv("data/gov.csv")
-except OSError:
+    gov_frame = pd.read_json("data/gov.json")
+except ValueError:
     gov_frame = gov_api.get_dataframe()
-    gov_frame.to_csv("data/gov.csv")
+    gov_frame.to_json("data/gov.json")
 
 try:
-    marquee_frame = pd.read_csv("data/marquee.csv")
-except OSError:
+    marquee_frame = pd.read_json("data/marquee.json")
+except ValueError:
     pass
     marquee_frame = marquee_api.get_data(
         countryId='GB', start=date(2020, 1, 3))
