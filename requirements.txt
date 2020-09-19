@@ -1,4 +1,4 @@
 gs-quant
 python-dotenv
 autopep8
-uk-covid19
+uk_covid19
