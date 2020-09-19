@@ -20,4 +20,5 @@ policies:
           - "chore"
           - "perf"
           - "refactor"
+          - "style"
         descriptionLength: 72
