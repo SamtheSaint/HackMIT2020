@@ -1,0 +1,3 @@
+gs-quant
+python-dotenv
+autopep8
