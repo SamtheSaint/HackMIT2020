@@ -1,18 +1,18 @@
 import requests
 from requests import HTTPError
+from geopy import distance
 
 
-def get_geojson(area_code):
+def get_lat_long(area_code):
     try:
-        response = requests.get("https://findthatpostcode.uk/areas/" + area_code + ".geojson")
-        return response.json()
+        response = requests.get("https://findthatpostcode.uk/areas/" + area_code + ".json")
+        geojson = response.json()
+        return tuple(geojson.get("included")[0].get("attributes").get("location").values())
     except HTTPError:
         pass
 
 
-def geojson_contains(outer_area_code, inner_area_code):
-    outer_json = get_geojson(outer_area_code)
-    # TODO: Implement Shapely contains method
-
-
-geojson_contains("E38000001", "E38000001")
+def dist(outer_area_code, inner_area_code):
+    outer_loc = get_lat_long(outer_area_code)
+    inner_loc = get_lat_long(inner_area_code)
+    return distance.distance(outer_loc, inner_loc).km
