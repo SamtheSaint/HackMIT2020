@@ -18,4 +18,5 @@ policies:
           - "fix"
           - "feat"
           - "chore"
+          - "perf"
         descriptionLength: 72
