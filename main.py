@@ -1,8 +1,9 @@
 from datetime import date
-from settings import marquee_api, gov_api
-import pandas as pd
+
 import gs_quant.timeseries as ts
-import matplotlib.pyplot as plt
+import pandas as pd
+
+from settings import marquee_api, gov_api
 
 # pull the UK data into a Pandas dataframe
 try:
@@ -43,15 +44,24 @@ for coord in coords:
     ts_list.append(ts_link)
 
 for pair in ts_list:
-    plt.figure(figsize=(12, 5))
     # TODO: Calculate optimal correlation lag time for each and do statistical analysis on results, i.e. median, S.D.,
     #  etc.
+    # TODO: Work out how to find the optimal correlation lag, possibly iterating over windows & mean?
+    # curr_max = -1
+    # for i in range(1,30):
+    #     curr_max = max(ts.econometrics.correlation(
+    #         pair[0]["count"], pair[1]["newCasesBySpecimenDate"], ).mean(), curr_max)
+    # print(f'{curr_max} at lag {i}')
+
+    # print(ts.econometrics.correlation(
+    #     pair[0]["count"], pair[1]["newCasesBySpecimenDate"]))
     print(ts.econometrics.correlation(
-        pair[0]["count"], pair[1]["newCasesBySpecimenDate"], 10))
-    pair[0]["count"].name = "Phone Calls"
-    pair[0]["count"].plot(color='blue', grid=True)
-    pair[1]["newCasesBySpecimenDate"].name = "Cases"
-    pair[1]["newCasesBySpecimenDate"].plot(color='red', grid=True, secondary_y=True)
-    plt.show()
+        pair[0]["count"], pair[0]["count"]))
+    # plt.figure(figsize=(12, 5))
+    # pair[0]["count"].name = "Phone Calls"
+    # pair[0]["count"].plot(color='blue', grid=True)
+    # pair[1]["newCasesBySpecimenDate"].name = "Cases"
+    # pair[1]["newCasesBySpecimenDate"].plot(color='red', grid=True, secondary_y=True)
+    # plt.show()
     # TODO: Trim data to match time for visualisation, shouldn't matter for correlation
     break
