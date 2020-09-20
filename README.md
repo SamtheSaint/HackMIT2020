@@ -19,7 +19,7 @@ Understand how the exponential spread of Covid could be potentially mitigated by
 
 ## TODO:
 
-- Visualisation of data
+- Visualisation of data -- plotly doesn't support UK county
 - Perform data smoothing as the data is quite noisy!
 
 ## Contributors
