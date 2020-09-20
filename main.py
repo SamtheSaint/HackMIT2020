@@ -55,12 +55,6 @@ for (ts_marquee, ts_gov) in ts_list:
     #     pair[0]["count"], pair[1]["newCasesBySpecimenDate"]))
     # print(ts.econometrics.correlation(
     #     ts_marquee["count"], ts_gov["newCasesBySpecimenDate"]))
-    # plt.figure(figsize=(12, 5))
-    # pair[0]["count"].name = "Phone Calls"
-    # pair[0]["count"].plot(color='blue', grid=True)
-    # pair[1]["newCasesBySpecimenDate"].name = "Cases"
-    # pair[1]["newCasesBySpecimenDate"].plot(color='red', grid=True, secondary_y=True)
-    # plt.show()
     # TODO: Trim data to match time for visualisation, shouldn't matter for correlation
     ts_marquee.to_csv(f"exports/marquee{area_code}.csv")
     ts_gov.to_csv(f"exports/gov{area_code}.csv")
